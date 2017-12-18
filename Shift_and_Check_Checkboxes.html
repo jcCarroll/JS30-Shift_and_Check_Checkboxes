@@ -98,10 +98,17 @@
 
     <script>
         const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
-        console.log(checkboxes);
+
+        let lastChecked;
+        let inBetween = false;
 
         function handleCheck(e) {
-            console.log(e);
+            if (e.shiftKey && this.checked) {
+                checkboxes.forEach(checkbox => {
+                    console.log(checkbox);
+                });
+            }
+            lastChecked = this;
         }
         checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
     </script>
